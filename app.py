@@ -22,22 +22,78 @@ st.set_page_config(
 
 
 # --------------------------------------------------
-# ESTILO DEL SIDEBAR
+# ESTILO DE LA PÁGINA
 # --------------------------------------------------
 
 st.markdown("""
 <style>
-[data-testid="stSidebar"] {
-    background-color: #0B1F3A;
-}
 
-[data-testid="stSidebar"] h1,
-[data-testid="stSidebar"] h2,
-[data-testid="stSidebar"] h3,
-[data-testid="stSidebar"] p,
-[data-testid="stSidebar"] label {
-    color: white;
-}
+    /* Fondo general */
+    .stApp {
+        background-color: white;
+    }
+
+    /* Líneas onduladas de fondo */
+    .stApp::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+
+        background:
+            radial-gradient(
+                ellipse at 10% 20%,
+                transparent 0%,
+                transparent 40%,
+                rgba(11, 31, 58, 0.12) 40.5%,
+                transparent 41%
+            ),
+            radial-gradient(
+                ellipse at 90% 80%,
+                transparent 0%,
+                transparent 38%,
+                rgba(52, 152, 219, 0.15) 38.5%,
+                transparent 39%
+            ),
+            radial-gradient(
+                ellipse at 80% 20%,
+                transparent 0%,
+                transparent 42%,
+                rgba(231, 76, 60, 0.10) 42.5%,
+                transparent 43%
+            ),
+            radial-gradient(
+                ellipse at 20% 85%,
+                transparent 0%,
+                transparent 40%,
+                rgba(46, 204, 113, 0.12) 40.5%,
+                transparent 41%
+            );
+    }
+
+    /* Mantener el contenido por encima de las ondas */
+    .main .block-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #0B1F3A;
+    }
+
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] label {
+        color: white;
+    }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -72,13 +128,11 @@ def text_to_speech(input_language, output_language, text, tld):
         slow=False
     )
 
-    # Crear un nombre seguro para el archivo
     my_file_name = text[:20].strip()
 
     if not my_file_name:
         my_file_name = "audio"
 
-    # Evitar caracteres problemáticos
     my_file_name = "".join(
         c for c in my_file_name
         if c.isalnum() or c in (" ", "_", "-")
@@ -208,7 +262,6 @@ if bg_image is not None:
         use_container_width=True
     )
 
-    # Leer directamente la imagen
     bytes_data = bg_image.getvalue()
 
     img_cv = cv2.imdecode(
@@ -260,7 +313,6 @@ if img_file_buffer is not None:
 
     if cv2_img is not None:
 
-        # Aplicar filtro si el usuario lo seleccionó
         if filtro == "Sí":
 
             cv2_img = cv2.bitwise_not(
@@ -323,8 +375,6 @@ with st.sidebar:
         )
     )
 
-
-    # Convertir idioma a código
     input_languages = {
 
         "Ingles": "en",
@@ -359,7 +409,6 @@ with st.sidebar:
         )
     )
 
-
     output_languages = {
 
         "Ingles": "en",
@@ -393,7 +442,6 @@ with st.sidebar:
             "South Africa"
         )
     )
-
 
     accents = {
 
