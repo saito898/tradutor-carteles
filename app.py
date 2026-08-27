@@ -28,12 +28,27 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-    /* Fondo general */
+    /* Fondo general blanco */
     .stApp {
         background-color: white;
     }
 
-    /* Líneas onduladas de fondo */
+    /* Texto general en negro */
+    .stApp,
+    .stApp p,
+    .stApp label,
+    .stApp h1,
+    .stApp h2,
+    .stApp h3,
+    .stApp h4,
+    .stApp span {
+        color: #000000;
+    }
+
+    /* --------------------------------------------------
+       LÍNEAS ONDULADAS DE FONDO
+       -------------------------------------------------- */
+
     .stApp::before {
         content: "";
         position: fixed;
@@ -75,23 +90,56 @@ st.markdown("""
             );
     }
 
-    /* Mantener el contenido por encima de las ondas */
+
+    /* Mantener contenido encima de las ondas */
+
     .main .block-container {
         position: relative;
         z-index: 1;
     }
 
-    /* Sidebar */
+
+    /* --------------------------------------------------
+       SIDEBAR
+       -------------------------------------------------- */
+
     [data-testid="stSidebar"] {
         background-color: #0B1F3A;
     }
 
+
+    /* Texto negro en sidebar */
+
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] h4,
     [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] label {
-        color: white;
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] span {
+        color: #000000 !important;
+    }
+
+
+    /* --------------------------------------------------
+       INPUTS DEL SIDEBAR
+       -------------------------------------------------- */
+
+    [data-testid="stSidebar"] input {
+        color: #000000 !important;
+    }
+
+
+    [data-testid="stSidebar"] [data-baseweb="select"] {
+        color: #000000 !important;
+        background-color: white;
+    }
+
+
+    /* Botones */
+
+    [data-testid="stSidebar"] button {
+        color: #000000 !important;
     }
 
 </style>
@@ -375,6 +423,7 @@ with st.sidebar:
         )
     )
 
+
     input_languages = {
 
         "Ingles": "en",
@@ -409,6 +458,7 @@ with st.sidebar:
         )
     )
 
+
     output_languages = {
 
         "Ingles": "en",
@@ -442,6 +492,7 @@ with st.sidebar:
             "South Africa"
         )
     )
+
 
     accents = {
 
