@@ -103,7 +103,7 @@ with st.sidebar:
       #text = st.text_input("Enter text")
       in_lang = st.selectbox(
           "Seleccione el lenguaje de entrada de la imagen",
-          ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones", "frances", "italiano"),
+          ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones", "Frances", "Italiano"),
       )
       if in_lang == "Ingles":
           input_language = "en"
