@@ -41,7 +41,7 @@ def remove_files(n):
 remove_files(7)
   
 
-image= Image.open('')
+image= Image.open('chibipaises.jfif')
 
 st.image(image,width=1920)
 
