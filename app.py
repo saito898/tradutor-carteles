@@ -100,48 +100,52 @@ with st.sidebar:
 
     # st.title("Text to speech")
     translator = Translator()
-      #text = st.text_input("Enter text")
-      in_lang = st.selectbox(
-          "Seleccione el lenguaje de entrada de la imagen",
-          ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones", "Frances", "Italiano"),
-      )
-      if in_lang == "Ingles":
-          input_language = "en"
-      elif in_lang == "Español":
-          input_language = "es"
-      elif in_lang == "Bengali":
-          input_language = "bn"
-      elif in_lang == "koreano":
-          input_language = "ko"
-      elif in_lang == "Mandarin":
-          input_language = "zh-cn"
-      elif in_lang == "Japones":
-          input_language = "ja"
-      elif in_lang == "Frances";
-          input_language = "fr"
-    elif in_lang == "Italiano";
-          input_language = "it"
-      
-      out_lang = st.selectbox(
-          "Select your output language",
-          ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones"),
-      )
-      if out_lang == "Ingles":
-          output_language = "en"
-      elif out_lang == "Español":
-          output_language = "es"
-      elif out_lang == "Bengali":
-          output_language = "bn"
-      elif out_lang == "koreano":
-          output_language = "ko"
-      elif out_lang == "Chinese":
-          output_language = "zh-cn"
-      elif out_lang == "Japones":
-          output_language = "ja"
-        elif out_lang == "Frances";
-          output_language = "fr"
-        elif out_lang == "Italiano";
-          output_language = "it"
+
+    # text = st.text_input("Enter text")
+
+    in_lang = st.selectbox(
+        "Seleccione el lenguaje de entrada de la imagen",
+        ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones", "Frances", "Italiano"),
+    )
+
+    if in_lang == "Ingles":
+        input_language = "en"
+    elif in_lang == "Español":
+        input_language = "es"
+    elif in_lang == "Bengali":
+        input_language = "bn"
+    elif in_lang == "koreano":
+        input_language = "ko"
+    elif in_lang == "Mandarin":
+        input_language = "zh-cn"
+    elif in_lang == "Japones":
+        input_language = "ja"
+    elif in_lang == "Frances":
+        input_language = "fr"
+    elif in_lang == "Italiano":
+        input_language = "it"
+
+    out_lang = st.selectbox(
+        "Select your output language",
+        ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones", "Frances", "Italiano"),
+    )
+
+    if out_lang == "Ingles":
+        output_language = "en"
+    elif out_lang == "Español":
+        output_language = "es"
+    elif out_lang == "Bengali":
+        output_language = "bn"
+    elif out_lang == "koreano":
+        output_language = "ko"
+    elif out_lang == "Mandarin":
+        output_language = "zh-cn"
+    elif out_lang == "Japones":
+        output_language = "ja"
+    elif out_lang == "Frances":
+        output_language = "fr"
+    elif out_lang == "Italiano":
+        output_language = "it"
       
       english_accent = st.selectbox(
           "Seleccione el acento",
