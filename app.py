@@ -41,10 +41,12 @@ def remove_files(n):
 remove_files(7)
   
 
+image= Image.open('')
 
+st.image(image,width=1920)
 
-st.title("Reconocimiento Óptico de Caracteres")
-st.subheader("Elige la fuente de la imágen, esta puede venir de la cámara o cargando un archivo")
+st.title("Bienvenido al traductor de carteles para extranjeros")
+st.subheader("En este lugar usted podra traducir imagenes desde su galeria o camara, para facilitar sus viajes.")
 
 cam_ = st.checkbox("Usar Cámara")
 
@@ -89,8 +91,16 @@ if img_file_buffer is not None:
     text=pytesseract.image_to_string(img_rgb) 
     st.write(text) 
 
+st.markdown("""
+<style>
+[data-testid="stSidebar"] {
+    background-color: #0B1F3A;
+}
+</style>
+""", unsafe_allow_html=True)
+
 with st.sidebar:
-      st.subheader("Parámetros de traducción")
+    st.subheader("Parámetros de traducción")
       
       try:
           os.mkdir("temp")
@@ -101,8 +111,8 @@ with st.sidebar:
       
       #text = st.text_input("Enter text")
       in_lang = st.selectbox(
-          "Seleccione el lenguaje de entrada",
-          ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones"),
+          "Seleccione el lenguaje de entrada de la imagen",
+          ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones", "frances", "italiano"),
       )
       if in_lang == "Ingles":
           input_language = "en"
@@ -116,6 +126,10 @@ with st.sidebar:
           input_language = "zh-cn"
       elif in_lang == "Japones":
           input_language = "ja"
+      elif in_lang == "Frances";
+          input_language = "fr"
+    elif in_lang == "Italiano";
+          input_language = "it"
       
       out_lang = st.selectbox(
           "Select your output language",
@@ -133,6 +147,10 @@ with st.sidebar:
           output_language = "zh-cn"
       elif out_lang == "Japones":
           output_language = "ja"
+        elif out_lang == "Frances";
+          output_language = "fr"
+        elif out_lang == "Italiano";
+          output_language = "it"
       
       english_accent = st.selectbox(
           "Seleccione el acento",
