@@ -91,13 +91,6 @@ if img_file_buffer is not None:
     text=pytesseract.image_to_string(img_rgb) 
     st.write(text) 
 
-st.markdown("""
-<style>
-[data-testid="stSidebar"] {
-    background-color: #0B1F3A;
-}
-</style>
-""", unsafe_allow_html=True)
 
 with st.sidebar:
     st.subheader("Parámetros de traducción")
